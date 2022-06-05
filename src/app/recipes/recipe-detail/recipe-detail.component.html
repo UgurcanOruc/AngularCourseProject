@@ -1,14 +1,19 @@
 <div class="card">
-    <img [src]="recipe.imagePath" alt="{{ recipe.name }}" class="img-responsive card-img-top">
+    <img [src]="recipe.imagePath" alt="{{ recipe.name }}" class="img-responsive card-img-top" style="max-height: 500px;">
     <div class="card-body">
         <div class="row">
-            <h5 class="card-title">{{ recipe.name }}</h5>
+            <h4 class="card-title">{{ recipe.name }}</h4>
         </div>
         <div class="row">
             <p class="card-text">{{ recipe.description }}</p>
         </div>
-        <div class="row">
-            <p>Ingredients</p>
+        <div class="row mt-2">
+            <div class="col-12">
+                <h5>Ingredients</h5>
+                <ol>
+                    <li *ngFor="let ingredient of recipe.ingredients">{{ ingredient.name }} - {{ ingredient.amount }}</li>
+                </ol>
+            </div>
         </div>
         <div class="row">
             <div class="d-flex justify-content-end" >
@@ -18,7 +23,7 @@
                         Manage Recipe <span class="caret" ></span>
                     </button>
                     <ul class="dropdown-menu" >
-                        <li class="dropdown-item">Add Ingredients to Shopping List
+                        <li class="dropdown-item" (click)="onAddToShoppingList()">Add Ingredients to Shopping List
                         </li>
                         <li class="dropdown-item">Edit Recipe
                         </li>
