@@ -1,5 +1,8 @@
-<div class="list-group">
-    <a href="#" class="list-group-item list-group-item-action mb-2" aria-current="true" (click)="onSelected()">
+<div class="list-group" routerLinkActive="active">
+    <a [routerLink]="[index]" 
+    style="cursor: pointer;" 
+    class="list-group-item list-group-item-action mb-2" 
+    aria-current="true">
         <div class="row">
             <div class="col-7">
                 <h4 class="list-group-item-heading text-center"> {{ recipe.name }}</h4>
